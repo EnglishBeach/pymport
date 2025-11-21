@@ -91,7 +91,7 @@ class Node(Entry):
     LabelGraphics: Optional[LGraphics] = None
 
     def __repr__(self) -> str:
-        return f"<{self.__class__.__name__.upper()} {self.label}>"
+        return f"<{self.__class__.__name__.upper()} {self.id} : {self.label}>"
 
     @model_validator(mode="after")
     def validator(self):
@@ -119,7 +119,7 @@ class Edge(Entry):
     weight: Optional[str] = None
 
     def __repr__(self) -> str:
-        return f"<{self.__class__.__name__.upper()} id={self.id}>"
+        return f"<{self.__class__.__name__.upper()} {self.id} : {self.source} -> {self.target}>"
 
 
 class Graph(BaseModel):
