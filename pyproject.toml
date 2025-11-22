@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "pymport"
+version = "0.1.0"
+description = "Lib for create import/class diagrams from your library"
+authors = ["EnglishBeach <https://github.com/EnglishBeach>"]
+readme = "README.md"
+
+# Dependencies
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.11.7"
+pylint = "^4.0.3"
+pydeps = "^3.0.1"
+
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+
+
+# Linters and formatters settings
+[tool.isort]
+profile = "black"
+line_length = 100
+src_paths = ["pymport"]
+skip_gitignore = true
+filter_files = true
+
+[tool.black]
+line-length = 100
+exclude = '''
+/(
+\.git
+| \.hg
+| \.mypy_cache
+| \.tox
+| \.venv
+| _build
+| build
+| dist
+)/
+'''
+
+[tool.pyright]
+include = ["pymport", "tests"]
+exclude = ["**/*.ipynb"]
+reportDeprecated = "warning"
+typeCheckingMode = 'standard'
+
+[tool.flake8]
+max-line-length = 100
+inline-quotes = "\""
+multiline-quotes = "\""
+ignore = ["E203", "W503", "E741"]
+
+[tool.poetry2conda]
+name = "pymport_env"

@@ -3,22 +3,6 @@ import colorsys
 
 from pymport import parser
 
-# def rename_nodes(g: parser.Graph, label2name: bool = True) -> parser.Graph:
-#     g = g.model_copy(deep=True)
-#     for n in g.nodes:
-#         if label2name:
-#             n.name = n.label if n.label else n.name
-#         else:
-#             n.label = n.name if n.name else n.label
-#     return g
-
-
-# def add_name_nodes(g: parser.Graph, prefix: str) -> parser.Graph:
-#     g = g.model_copy(deep=True)
-#     for n in g.nodes:
-#         n.name = f"{prefix}.{n.name}"
-#     return g
-
 
 def colorize(g: parser.Graph):
     colors_len = max(n.label.count(".") if n.label else 0 for n in g.nodes) + 1
@@ -43,9 +27,7 @@ def prune(g: parser.Graph, prune_names: list[str]):
         if isinstance(i, parser.Node) and (i.id in prune_ids):
             drop = True
 
-        if isinstance(i, parser.Edge) and (
-            (i.source in prune_ids) or (i.target in prune_ids)
-        ):
+        if isinstance(i, parser.Edge) and ((i.source in prune_ids) or (i.target in prune_ids)):
             drop = True
 
         if not drop:
@@ -112,6 +94,4 @@ def _clusterize(
 def _get_colormap(n: int) -> list[str]:
     HSV_tuples = [(x / n * 0.8, 1, 1) for x in range(n)]
     RGB_tuples = [colorsys.hsv_to_rgb(*x) for x in HSV_tuples]
-    return [
-        f"#{int(255*r):02X}{int(255*g):02X}{int(255*b):02X}" for r, g, b in RGB_tuples
-    ]
+    return [f"#{int(255*r):02X}{int(255*g):02X}{int(255*b):02X}" for r, g, b in RGB_tuples]
