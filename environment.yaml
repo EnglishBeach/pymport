@@ -7,9 +7,8 @@
 # the pyproject.toml file and then use poetry2conda again to update this file.
 # Alternatively, stop using (ana)conda.
 ###############################################################################
-name: pymport_env
+name: pylibscheme_env
 dependencies:
   - python>=3.10,<4.0
-  - pydantic>=2.11.7,<3.0.0
   - pylint>=4.0.3,<5.0.0
   - pydeps>=3.0.1,<4.0.0

@@ -1,4 +1,4 @@
-# pymport
+# PyLibScheme
 
 [RU Documentation](documentation/README.ru.md)
 
@@ -18,9 +18,9 @@ Generate graphs only for required library:
 Generate import graph from Python library. Works well for namespaces too (packages without `__init__.py` files). **Mark import hierarchy by groups in graph**. Use library folder:
 
 ```
-import pymport
+import pylibscheme
 
-gml = pymport.create_import_graph('path/to/lib/lib_folder')
+gml = pylibscheme.create_import_graph('path/to/lib/lib_folder')
 ```
 
 ![alt text](documentation/image-1.png)
@@ -30,9 +30,9 @@ gml = pymport.create_import_graph('path/to/lib/lib_folder')
 Generate import graph from Python library. Works well for namespaces too (packages without `__init__.py` files). **Mark files witch contain classes by groups in graph**. Use library folder:
 
 ```
-import pymport
+import pylibscheme
 
-gml = pymport.create_class_graph('path/to/lib/lib_folder')
+gml = pylibscheme.create_class_graph('path/to/lib/lib_folder')
 ```
 
 ![alt text](documentation/image.png)

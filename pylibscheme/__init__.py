@@ -2,7 +2,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from pymport import converters, files, parser, tools
+from pylibscheme import converters, files, parser, tools
 
 
 def create_import_graph(lib_path: str, out_file: Path = Path("out_pkg.gml")) -> Path:

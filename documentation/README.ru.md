@@ -1,4 +1,4 @@
-# pymport
+# PyLibScheme
 
 Инструмент для рисования графа по файлам библиотеки python. Использует инструменты анализа кода `pydeps` и `pyreverse` для генерации графов и `gv2gml` для преобразования выходного `.dot` файла в удобный для просмотра `.gml` файл. Предполагается использование бесплатного редактора [yEd](https://www.yworks.com/products/yed) или [yEd live](https://www.yworks.com/yed-live/?ref=hackernoon.com).
 
@@ -16,9 +16,9 @@
 Создает граф импортов python библиотеки. Корректно работает даже для пространств имен (пакетов без `__init__.py`). Выстраивает иерархию модулей с помощью групп на графе. Указывается путь до папки библиотеки:
 
 ```
-import pymport
+import pylibscheme
 
-gml = pymport.create_import_graph('path/to/lib/lib_folder')
+gml = pylibscheme.create_import_graph('path/to/lib/lib_folder')
 ```
 
 ![alt text](image-1.png)
@@ -28,9 +28,9 @@ gml = pymport.create_import_graph('path/to/lib/lib_folder')
 Создает граф классов python библиотеки. Корректно работает даже для пространств имен (пакетов без `__init__.py`). Указывает адреса классов (пути до файлов) с помощью групп на графе. Указывается путь до папки библиотеки:
 
 ```
-import pymport
+import pylibscheme
 
-gml = pymport.create_class_graph('path/to/lib/lib_folder')
+gml = pylibscheme.create_class_graph('path/to/lib/lib_folder')
 ```
 
 ![alt text](image.png)

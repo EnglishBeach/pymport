@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pymport"
+name = "pylibscheme"
 version = "0.1.0"
 description = "Lib for create import/class diagrams from your library"
 authors = ["EnglishBeach <https://github.com/EnglishBeach>"]
@@ -8,7 +8,6 @@ readme = "README.md"
 # Dependencies
 [tool.poetry.dependencies]
 python = "^3.10"
-pydantic = "^2.11.7"
 pylint = "^4.0.3"
 pydeps = "^3.0.1"
 
@@ -24,7 +23,7 @@ flake8 = "^7.0.0"
 [tool.isort]
 profile = "black"
 line_length = 100
-src_paths = ["pymport"]
+src_paths = ["pylibscheme"]
 skip_gitignore = true
 filter_files = true
 
@@ -44,7 +43,7 @@ exclude = '''
 '''
 
 [tool.pyright]
-include = ["pymport", "tests"]
+include = ["pylibscheme", "tests"]
 exclude = ["**/*.ipynb"]
 reportDeprecated = "warning"
 typeCheckingMode = 'standard'
@@ -56,4 +55,4 @@ multiline-quotes = "\""
 ignore = ["E203", "W503", "E741"]
 
 [tool.poetry2conda]
-name = "pymport_env"
+name = "pylibscheme_env"

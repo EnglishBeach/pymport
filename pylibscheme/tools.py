@@ -1,14 +1,14 @@
 import collections
 import colorsys
 
-from pymport import parser
+from pylibscheme import parser
 
 
 def colorize(g: parser.Graph):
     colors_len = max(n.label.count(".") if n.label else 0 for n in g.nodes) + 1
     color_map = _get_colormap(colors_len)
     m = 0
-    g = g.model_copy(deep=True)
+    g = g.copy()
     for n in g.nodes:
         level = n.label.count(".") if n.label else 0
         m = max([level, m])
@@ -18,7 +18,7 @@ def colorize(g: parser.Graph):
 
 
 def prune(g: parser.Graph, prune_names: list[str]):
-    g = g.model_copy(deep=True)
+    g = g.copy()
     prune_ids = [i.id for i in g.nodes if i.norm in prune_names]
 
     entries = []
@@ -37,7 +37,7 @@ def prune(g: parser.Graph, prune_names: list[str]):
 
 
 def clusterize(g: parser.Graph, ter_groups: bool) -> parser.Graph:
-    g = g.model_copy(deep=True)
+    g = g.copy()
     nodes = g.nodes
     clusters, _ = _clusterize(
         nodes,
